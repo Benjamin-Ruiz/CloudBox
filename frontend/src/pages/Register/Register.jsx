@@ -385,7 +385,6 @@ export default function Register() {
 
       {/* Alertas */}
       <Link to="/verificar-correo" className="module-button">Verificar cuenta o reenviar correo</Link>
-      <Link to="/verificar-correo" className="module-button">Verificar cuenta o reenviar correo</Link>
       <AlertModal
         isOpen={alert.isOpen}
         onClose={handleAlertClose}
