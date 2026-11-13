@@ -59,3 +59,15 @@
   outline: 2px solid #2563ff;
   outline-offset: 2px;
 }
+/* Mobile: help button next to the CTA */
+@media (max-width: 768px) {
+  .topbar { padding: 0 12px; gap: 8px; }
+  .brand { flex-shrink: 1; min-width: 0; }
+  .brand img { height: 64px; max-width: 100%; object-fit: contain; }
+  .topbar-actions { margin-left: auto; gap: 8px; flex-shrink: 0; position: relative; z-index: 20; }
+  .help-btn { position: relative; z-index: 20; margin-left: auto; margin-right: 0; gap: 6px; font-family: inherit; font-size: 13px; font-weight: 500; white-space: nowrap; color: #64748b; background: #f1f5f9; border: 1px solid #e2e8f0; padding: 6px 10px; border-radius: 8px; }
+  .btn-small { font-size: 13px; padding: 7px 12px; white-space: nowrap; }
+}
+@media (max-width: 480px) {
+  .brand img { height: 52px; }
+}

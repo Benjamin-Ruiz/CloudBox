@@ -116,3 +116,50 @@
     display: none;
   }
 }
+/* Mobile: contained header (logo + CTA row, links row) */
+@media (max-width: 768px) {
+  html body .landing-nav .landing-nav-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; min-height: 56px; height: auto; padding: 8px 14px; gap: 0 8px; box-sizing: border-box; }
+  html body .landing-nav .landing-logo img { height: 30px; max-height: 32px; width: auto; }
+  html body .landing-nav .landing-nav-cta { margin: 0 0 0 auto; gap: 10px; }
+  html body .landing-nav .landing-nav-cta .btn-primary { height: auto; padding: 7px 14px; font-size: 13px; line-height: 1.2; margin: 0; white-space: nowrap; }
+  html body .landing-nav .landing-nav-links { order: 3; flex: 1 1 100%; margin-top: 0; padding: 10px 10px 14px; width: 100%; display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: center; gap: 4px; box-sizing: border-box; overflow: visible; }
+  html body .landing-nav .landing-nav-links a { font-size: 12.5px; white-space: nowrap; }
+}
+@media (max-width: 480px) {
+  html body .landing-nav .landing-nav-links a { font-size: 11.5px; }
+}
+@media (max-width: 379px) {
+  html body .landing-nav .landing-nav-links { flex-wrap: wrap; justify-content: center; gap: 6px 12px; }
+}
+
+/* Mobile: show login link next to CTA, slightly larger logo */
+@media (max-width: 768px) {
+  html body .landing-nav .landing-nav-cta { display: flex; align-items: center; gap: 6px; }
+  html body .landing-nav .landing-nav-cta .landing-login-link { display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; font-size: 12px; white-space: nowrap; border-radius: 8px; }
+  html body .landing-nav .landing-nav-cta .btn-primary { padding: 6px 11px; font-size: 12px; white-space: nowrap; }
+  html body .landing-nav .landing-logo { flex-shrink: 0; }
+  html body .landing-nav .landing-logo img { height: 32px; max-height: 34px; width: auto; }
+}
+
+/* Mobile (landing only): bigger logo, links over the top of the blue hero */
+@media (max-width: 768px) {
+  html body .landing-nav .landing-logo { flex-shrink: 0; }
+  html body .landing-nav .landing-logo img { height: 40px; max-height: 42px; width: auto; }
+  html body .landing-page > .landing-nav { position: relative; }
+  html body .landing-page > .landing-nav .landing-nav-links { position: absolute; top: 100%; left: 0; right: 0; width: 100%; display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: center; padding: 10px 14px; margin: 0; background: transparent; box-sizing: border-box; z-index: 5; }
+  html body .landing-page > .landing-nav .landing-nav-links a { color: rgba(255, 255, 255, 0.92); font-size: 11.5px; white-space: nowrap; }
+  html body .landing-page > .landing-nav .landing-nav-links a:hover, html body .landing-page > .landing-nav .landing-nav-links a:focus-visible { color: #fff; }
+  html body .landing-page .landing-introduction { padding-top: 96px; }
+}
+@media (max-width: 379px) {
+  html body .landing-page > .landing-nav .landing-nav-links { flex-wrap: wrap; justify-content: center; gap: 6px 12px; }
+  html body .landing-page .landing-introduction { padding-top: 116px; }
+}
+
+/* Mobile: logo size identical to login topbar */
+@media (max-width: 768px) {
+  html body .landing-nav .landing-logo img { height: 64px; max-height: none; width: auto; max-width: 100%; object-fit: contain; }
+}
+@media (max-width: 480px) {
+  html body .landing-nav .landing-logo img { height: 52px; }
+}

@@ -157,3 +157,9 @@
 }
 /* Reserva espacio para la guía dentro del footer, sin dejar una franja fuera de la página. */
 @media (max-width: 600px) { .footer { padding-bottom: 72px; } }
+
+/* Mobile: symmetric, centered footer columns */
+@media (max-width: 768px) {
+  html body .footer .footer-columns { display: grid; grid-template-columns: repeat(2, auto); justify-content: center; column-gap: 48px; row-gap: 24px; width: 100%; max-width: 100%; margin: 0 auto; }
+  html body .footer .footer-col { text-align: left; min-width: 0; }
+}
