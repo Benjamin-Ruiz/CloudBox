@@ -525,3 +525,7 @@
 .sc-recipient-person > span { font-size: 11px; color: #64748b; overflow-wrap: anywhere; }
 .sc-recipient-status { padding: 10px 14px; font-size: 11px; line-height: 1.5; color: #64748b; background: #f8fafc; border-top: 1px solid #f1f5f9; }
 .sc-recipient-status button { border: 0; background: transparent; color: #1565c0; cursor: pointer; font: inherit; font-weight: 700; }
+
+@media (max-width: 768px) {
+  .sc-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}

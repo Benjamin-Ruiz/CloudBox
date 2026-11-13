@@ -59,3 +59,12 @@ html[data-theme='dark'] .admin-reports .module-heading .module-button:not(.prima
   .admin-reports .module-filters .module-button { width: 100%; }
   .ar-note { padding: 18px 16px; }
 }
+
+@media (max-width: 768px) {
+  .admin-reports .module-page { padding: 20px 16px 40px; }
+  .admin-reports .module-heading { flex-wrap: wrap; gap: 16px; padding: 22px 18px; }
+  .admin-reports .module-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+@media (max-width: 768px) { .admin-reports .module-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) { .admin-reports .module-stats { grid-template-columns: minmax(0, 1fr); } }

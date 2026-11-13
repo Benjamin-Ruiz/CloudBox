@@ -72,3 +72,11 @@ html[data-theme='dark'] .admin-plans .ap-activate { color: #83d9af; }
   .ap-plan { padding: 24px; }
   .ap-note { padding: 18px 16px; }
 }
+
+@media (max-width: 768px) {
+  .admin-plans .module-page { padding: 20px 16px 40px; }
+  .admin-plans .module-heading { flex-wrap: wrap; gap: 16px; padding: 22px 18px; }
+  .admin-plans .module-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+@media (max-width: 768px) { .ap-stats { grid-template-columns: minmax(0, 1fr); gap: 12px; } }

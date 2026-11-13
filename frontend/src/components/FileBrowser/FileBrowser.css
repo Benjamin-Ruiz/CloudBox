@@ -778,3 +778,11 @@
 .mf-page .mf-action-placeholder { display: inline-block; width: 34px; height: 34px; flex: 0 0 34px; }
 .mf-page .mf-actions .mf-open-btn { height: 34px; min-height: 34px; margin-right: 0; }
 .mf-page .mf-table th:last-child { text-align: right; }
+
+@media (max-width: 768px) {
+  .mf-page { max-width: 100%; }
+  .mf-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+}
+@media (max-width: 480px) {
+  .mf-page .mf-favorites-folder { max-width: 100%; }
+}

@@ -77,3 +77,9 @@ html[data-theme='dark'] .admin-subscriptions .as-expired { color: #ffadb6; }
   .as-directory-footer { padding: 18px 16px; }
   .as-note { padding: 8px 4px; }
 }
+
+@media (max-width: 768px) {
+  .admin-subscriptions .module-page { padding: 20px 16px 40px; }
+  .admin-subscriptions .module-heading { flex-wrap: wrap; gap: 16px; padding: 22px 18px; }
+  .admin-subscriptions .module-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}

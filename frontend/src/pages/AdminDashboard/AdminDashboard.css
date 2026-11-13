@@ -700,3 +700,23 @@ html[data-theme='dark'] .admin-overview :is(.admin-stat-icon, .admin-quick-icon)
   .admin-overview .admin-quick-card { transition: none; }
   .admin-overview .admin-quick-card:hover { transform: none; }
 }
+
+@media (max-width: 768px) {
+  .admin-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+}
+@media (max-width: 480px) {
+  .admin-overview .admin-side { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Mobile: table rows as cards (no horizontal scroll) */
+@media (max-width: 768px) {
+  html body .admin-table-wrap { overflow-x: visible; max-width: 100%; }
+  html body .admin-table-wrap .admin-table, html body .admin-table-wrap .admin-table tbody { display: block; width: 100%; min-width: 0; }
+  html body .admin-table-wrap .admin-table thead { display: none; }
+  html body .admin-table-wrap .admin-table tr { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; width: 100%; padding: 12px 14px; border-bottom: 1px solid var(--borderColor, #e2e8f0); }
+  html body .admin-table-wrap .admin-table tr:last-child { border-bottom: 0; }
+  html body .admin-table-wrap .admin-table td { display: block; width: auto; min-width: 0; max-width: 100%; padding: 0; border: 0; white-space: normal; word-break: normal; overflow-wrap: break-word; }
+  html body .admin-table-wrap .admin-table td:first-child { flex: 1 1 100%; }
+  html body .admin-table-wrap .admin-table td:last-child:not(:first-child) { margin-left: auto; }
+  html body .admin-table-wrap .admin-table td[colspan], html body .admin-table-wrap .admin-table td.admin-empty { flex: 1 1 100%; width: 100%; max-width: 100%; box-sizing: border-box; text-align: center; padding: 24px 16px; }
+}

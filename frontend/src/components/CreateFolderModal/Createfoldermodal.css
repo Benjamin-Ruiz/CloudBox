@@ -207,3 +207,10 @@
   .cf-backdrop,
   .cf-modal { animation: none; }
 }
+
+@media (max-width: 480px) {
+  .cf-backdrop { padding: 16px; }
+  .cf-modal { width: 100%; max-width: 100%; }
+  .cf-header, .cf-footer { padding-left: 16px; padding-right: 16px; }
+  .cf-footer { flex-wrap: wrap; }
+}

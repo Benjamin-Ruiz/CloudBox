@@ -450,3 +450,31 @@ html[data-theme="dark"] .module-badge.danger { background: #3b242e; color: #ffb4
 .support-tickets .module-table { min-width: 640px; }
 .module-pager { flex-wrap: wrap; }
 .module-field { min-width: min(145px, 100%); }
+
+@media (max-width: 768px) {
+  .module-page { padding: 20px 16px 40px; }
+  .module-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+  .module-heading { flex-wrap: wrap; }
+}
+
+/* Mobile: table rows as cards (no horizontal scroll) */
+@media (max-width: 768px) {
+  html body .module-table-scroll { overflow-x: visible; max-width: 100%; }
+  html body .module-table-scroll .module-table, html body .module-table-scroll .module-table tbody { display: block; width: 100%; min-width: 0; }
+  html body .module-table-scroll .module-table thead { display: none; }
+  html body .module-table-scroll .module-table tr { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; width: 100%; padding: 12px 14px; border-bottom: 1px solid var(--borderColor, #e2e8f0); }
+  html body .module-table-scroll .module-table tr:last-child { border-bottom: 0; }
+  html body .module-table-scroll .module-table td { display: block; width: auto; min-width: 0; max-width: 100%; padding: 0; border: 0; white-space: normal; word-break: normal; overflow-wrap: break-word; }
+  html body .module-table-scroll .module-table td:first-child { flex: 1 1 100%; }
+  html body .module-table-scroll .module-table td:last-child:not(:first-child) { margin-left: auto; }
+  html body .module-table-scroll .module-table td[colspan], html body .module-table-scroll .module-table td.module-empty { flex: 1 1 100%; width: 100%; max-width: 100%; box-sizing: border-box; text-align: center; padding: 24px 16px; }
+}
+
+@media (max-width: 480px) {
+  html body .module-filters { display: grid; grid-template-columns: minmax(0, 1fr); }
+  html body .module-filters select { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  html body .module-filters .module-field, html body .module-filters .module-field select { width: 100%; min-width: 0; max-width: 100%; box-sizing: border-box; }
+}

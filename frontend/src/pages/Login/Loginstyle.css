@@ -259,3 +259,6 @@ body {
     transition: none !important;
   }
 }
+@media (max-width: 480px) {
+  .login-page .hero { padding: 24px 16px; }
+}

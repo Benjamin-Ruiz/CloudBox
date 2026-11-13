@@ -510,3 +510,14 @@ html[data-theme='dark'] .um-management .um-icon-btn.success:hover { background: 
   .um-management .um-filter-btn { min-width: 0; width: 100%; font-size: .7rem; }
   .um-management .um-pagination { padding: 18px 16px; }
 }
+
+/* Mobile: table rows as cards (no horizontal scroll) */
+@media (max-width: 768px) {
+  html body .um-table-wrap { overflow-x: visible; max-width: 100%; }
+  html body .um-table-wrap .um-table, html body .um-table-wrap .um-table tbody { display: block; width: 100%; min-width: 0; }
+  html body .um-table-wrap .um-table thead { display: none; }
+  html body .um-table-wrap .um-table tr { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; width: 100%; padding: 12px 14px; border-bottom: 1px solid var(--borderColor, #e2e8f0); }
+  html body .um-table-wrap .um-table td { display: block; width: auto; min-width: 0; max-width: 100%; padding: 0; border: 0; white-space: normal; word-break: normal; overflow-wrap: break-word; }
+  html body .um-table-wrap .um-table td:first-child { flex: 1 1 100%; }
+  html body .um-table-wrap .um-table td.um-empty { flex: 1 1 100%; width: 100%; text-align: center; padding: 24px 16px; }
+}

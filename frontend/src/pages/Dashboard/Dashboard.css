@@ -578,3 +578,7 @@
   color: #6b7a90;
 }
 .dash-home :is(button,a,input):focus-visible { outline: 3px solid #79aaff; outline-offset: 3px; }
+
+@media (max-width: 768px) {
+  .dash-feedback { padding: 16px; }
+}

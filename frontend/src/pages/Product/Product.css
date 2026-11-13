@@ -38,3 +38,7 @@
 @media(max-width:560px) { .product-main { padding:24px 18px 40px; } .product-hero { padding:30px 23px; } .product-nav { flex-wrap:wrap; margin-bottom:32px; } .product-nav a { flex:1 1 40%; padding:11px 5px; } .product-cards,.product-steps { grid-template-columns:1fr; } .product-guide,.product-cta { padding:25px; } .product-section-title h2,.product-cta h2 { font-size:1.5rem; } }
 html[data-theme="dark"] .product-page { --module-tint:#1c2c43; }
 html[data-theme="dark"] .product-eyebrow,html[data-theme="dark"] .product-card-top > span,html[data-theme="dark"] .product-card a,html[data-theme="dark"] .product-steps > div > span,html[data-theme="dark"] .product-nav a.active { color:#9bc5ff; }
+
+@media (max-width: 768px) {
+  .product-main { padding: 28px 16px 48px; }
+}
