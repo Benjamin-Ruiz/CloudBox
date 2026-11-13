@@ -11,6 +11,16 @@ import { ModulePage, Panel, Table, Badge, Feedback, Empty, Refresh, Modal } from
 import PlanOverview from './PlanOverview';
 import './Plans.css';
 
+const normalizeMethod = name => String(name || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+// Solo tarjetas de crédito y débito. Si no existe fila de débito en metodo_pago, se envía el id de crédito (pago simulado).
+const cardMethods = (methods = []) => {
+  const list = Array.isArray(methods) ? methods : [];
+  const credit = list.find(m => normalizeMethod(m.nombre).includes('credito'));
+  const debit = list.find(m => normalizeMethod(m.nombre).includes('debito'));
+  const base = credit || debit;
+  if (!base) return list.filter(m => !/transferencia|billetera/.test(normalizeMethod(m.nombre))).map(m => ({ key: String(m.id), id: m.id, nombre: m.nombre }));
+  return [{ key: 'credito', id: (credit || base).id, nombre: credit?.nombre || 'Tarjeta de crédito' }, { key: 'debito', id: (debit || base).id, nombre: debit?.nombre || 'Tarjeta de débito' }];
+};
 export default function Plans({
   publicCatalog = false, embedded = false
 }) {
@@ -69,7 +79,7 @@ export default function Plans({
         ...(action.type === 'change-plan' ? {
           newPlanId: action.plan.id
         } : {}),
-        paymentMethodId: Number(method),
+        paymentMethodId: Number(cardMethods(data.methods).find(m => m.key === method)?.id),
         referenceCode: reference,
         simulateFailure: failure
       });
@@ -129,6 +139,6 @@ export default function Plans({
           setDeclined(false);
           setFailure(false);
           setError('');
-        }}>Preparar un nuevo intento</button>}{action.type === 'cancel' ? <p className="module-muted">Conservarás el servicio pagado hasta el final de su vigencia. Después regresarás al plan Free. Tus archivos se conservan; si excedes su cuota, las subidas quedarán bloqueadas.</p> : <><p className="module-muted">Pago simulado. Precio del plan: {money(action.plan.precio)} por {action.plan.vigencia_dias} días. El crédito y la fecha efectiva se calculan según tu suscripción.</p><label className="module-field">Método de pago<select required disabled={busy} value={method} onChange={e => setMethod(e.target.value)}><option value="">Selecciona un método</option>{data.methods?.map(m => <option key={m.id} value={m.id}>{m.nombre}</option>)}</select></label><label className="module-field">Referencia de la operación<input required minLength={8} pattern="[A-Za-z0-9][A-Za-z0-9_-]{7,99}" maxLength={100} disabled={busy} value={reference} onChange={e => setReference(e.target.value)} /></label><label className="module-muted"><input type="checkbox" checked={failure} disabled={busy} onChange={e => setFailure(e.target.checked)} /> Simular pago rechazado</label></>}<div className="module-actions"><button type="button" className="module-button" disabled={busy} onClick={() => setAction(null)}>Volver</button><button className="module-button primary" disabled={busy || declined}>{busy ? 'Procesando…' : 'Confirmar operación'}</button></div></form></Modal>}
+        }}>Preparar un nuevo intento</button>}{action.type === 'cancel' ? <p className="module-muted">Conservarás el servicio pagado hasta el final de su vigencia. Después regresarás al plan Free. Tus archivos se conservan; si excedes su cuota, las subidas quedarán bloqueadas.</p> : <><p className="module-muted">Pago simulado. Precio del plan: {money(action.plan.precio)} por {action.plan.vigencia_dias} días. El crédito y la fecha efectiva se calculan según tu suscripción.</p><label className="module-field">Método de pago<select required disabled={busy} value={method} onChange={e => setMethod(e.target.value)}><option value="">Selecciona un método</option>{cardMethods(data.methods).map(m => <option key={m.key} value={m.key}>{m.nombre}</option>)}</select></label><label className="module-field">Referencia de la operación<input required minLength={8} pattern="[A-Za-z0-9][A-Za-z0-9_-]{7,99}" maxLength={100} disabled={busy} value={reference} onChange={e => setReference(e.target.value)} /></label><label className="module-muted"><input type="checkbox" checked={failure} disabled={busy} onChange={e => setFailure(e.target.checked)} /> Simular pago rechazado</label></>}<div className="module-actions"><button type="button" className="module-button" disabled={busy} onClick={() => setAction(null)}>Volver</button><button className="module-button primary" disabled={busy || declined}>{busy ? 'Procesando…' : 'Confirmar operación'}</button></div></form></Modal>}
   </ModulePage></>;
 }
